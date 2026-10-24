@@ -32,6 +32,83 @@ name5 = pokemon5['name']
 height5 =pokemon5['height']
 weight5 = pokemon5['weight']
 
+pokemons = [
+    {
+        'name': name1,
+        'height': height1,
+        'weight': weight1
+    },
+    {
+        'name': name2,
+        'height': height2,
+        'weight': weight2
+    },
+    {
+        'name': name3,
+        'height': height3,
+        'weight': weight3
+    },
+    {
+        'name': name4,
+        'height': height4,
+        'weight': weight4
+    },
+    {
+        'name': name5,
+        'height': height5,
+        'weight': weight5
+    }
+]
+
+def play():
+    trial = 3
+    guess = random.choice(pokemons)
+
+    while trial > 0:
+        print(f"\nTrial:{trial}")
+        print("\nOur pokemon is:")
+
+        for pokemon in pokemons:
+            print(f"{pokemon['name']}")
+
+        print(f"\nThis pokemon weight is {guess['weight']}, while its height is {guess['height']}.")
+
+        choice = str(input("Who's that pokemon?").lower().strip())
+    
+        if choice == guess['name']:
+            print(f"You are correct. The pokemon is {guess['name']}")
+            return
+        elif choice == "":
+            print("Please input your answer.")
+        else:
+            print("You are incorrect. Try again")
+            trial -= 1
+
+    print("\nYour trials have run out.")
+    print(f"The pokemon is {guess['name']}. You did great guessing. Better luck next time!\n")
+
+def main():
+
+    print("="*20)
+    print("Who is that Pokemon".center(20))
+    print("Welcome to the Guessing Game.".center(20))
+
+    while True:
+        print("="*20)
+
+        print("\nChoose 1 or 2:")
+        print("[1] Play\n[2]Exit")
+
+        choice = input("\nChoose between 1-2: ")
+
+        if choice == "1":
+            play()
+        elif choice == "2":
+            break
+        else:
+            print("Choice only number 1 or 2")
+
+main()
 
 
 
